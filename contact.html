@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact &amp; Trade Applications | Sorelli Noir B2B Europe</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nd-cream:#f7f4ee;
+  --nd-black:#181410;
+  --nd-tan:#a9743b;
+  --nd-tan-dark:#7c5328;
+  --nd-line:#e3ddd0;
+  --nd-gray:#6b6258;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:'Jost', sans-serif;
+  color:var(--nd-black);
+  background:#fff;
+  letter-spacing:.02em;
+}
+h1,h2,h3,h4,.serif{
+  font-family:'Cormorant Garamond', serif;
+}
+a{text-decoration:none;color:inherit;}
+.btn-tan{
+  background:var(--nd-tan);
+  color:#fff;
+  border-radius:0;
+  padding:.7rem 2rem;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  border:1px solid var(--nd-tan);
+  transition:.3s;
+}
+.btn-tan:hover{background:#fff;color:var(--nd-tan-dark);}
+.btn-outline-dark-thin{
+  border:1px solid var(--nd-black);
+  border-radius:0;
+  padding:.7rem 2rem;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  background:transparent;
+  transition:.3s;
+}
+.btn-outline-dark-thin:hover{background:var(--nd-black);color:#fff;}
+.eyebrow{
+  font-size:.75rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--nd-tan-dark);
+}
+
+/* ===== Top announcement bar ===== */
+.announce-bar{
+  background:var(--nd-black);
+  color:#f1ece2;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-align:center;
+  padding:7px 0;
+  text-transform:uppercase;
+}
+
+/* ===== Language Switcher ===== */
+.lang-btn {
+  background: none;
+  border: none;
+  color: #f1ece2;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s;
+  padding: 0 5px;
+}
+.lang-btn.active, .lang-btn:hover {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ===== Navbar ===== */
+.navbar{
+  padding:1rem 0;
+  background:#fff;
+  border-bottom:1px solid var(--nd-line);
+}
+.navbar-brand{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700;
+  font-size:1.9rem;
+  letter-spacing:.05em;
+}
+.navbar-brand span{color:var(--nd-tan-dark);}
+.nav-link-custom{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--nd-black) !important;
+  padding:.5rem 1rem !important;
+  position:relative;
+}
+.nav-link-custom::after{
+  content:"";
+  position:absolute;
+  left:1rem;right:1rem;bottom:.1rem;
+  height:1px;background:var(--nd-tan-dark);
+  transform:scaleX(0);
+  transition:transform .25s;
+}
+.nav-link-custom:hover::after{transform:scaleX(1);}
+.icon-link{
+  font-size:1.05rem;
+  color:var(--nd-black);
+  margin-left:1.1rem;
+  position:relative;
+}
+.cart-badge{
+  position:absolute;top:-8px;right:-10px;
+  background:var(--nd-tan-dark);
+  color:#fff;
+  font-size:.6rem;
+  border-radius:50%;
+  width:16px;height:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== Contact Header Section ===== */
+.contact-hero {
+  background: var(--nd-cream);
+  padding: 6rem 0 4.5rem;
+  text-align: center;
+}
+.contact-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* ===== Channels & Information Cards ===== */
+.info-card-wrap {
+  background: #fff;
+  border: 1px solid var(--nd-line);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  height: 100%;
+  transition: 0.3s ease;
+}
+.info-card-wrap:hover {
+  border-color: var(--nd-tan);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+}
+.info-icon-box {
+  font-size: 1.7rem;
+  color: var(--nd-tan);
+  margin-bottom: 1rem;
+}
+.info-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.info-card-link {
+  font-size: 0.95rem;
+  color: var(--nd-black);
+  display: block;
+  transition: color 0.2s;
+}
+.info-card-link:hover {
+  color: var(--nd-tan-dark);
+}
+.info-card-note {
+  font-size: 0.78rem;
+  color: var(--nd-gray);
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* ===== Form Structure Architecture ===== */
+.form-outer-box {
+  background: var(--nd-cream);
+  padding: 3.5rem;
+  border: 1px solid var(--nd-line);
+}
+.specs-rule-box {
+  border-left: 3px solid var(--nd-tan);
+  padding-left: 1rem;
+  margin-bottom: 2.5rem;
+}
+.specs-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.specs-detail {
+  font-size: 0.82rem;
+  color: var(--nd-gray);
+}
+.custom-input-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: var(--nd-gray);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.custom-form-element {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--nd-line);
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  font-family: 'Jost', sans-serif;
+  color: var(--nd-black);
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 1.8rem;
+}
+.custom-form-element:focus {
+  border-color: var(--nd-tan-dark);
+}
+select.custom-form-element {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6258' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+/* ===== Footer ===== */
+footer{background:#fff;padding-top:4rem;border-top:1px solid var(--nd-line);}
+footer h6{
+  text-transform:uppercase;font-size:.78rem;letter-spacing:.15em;margin-bottom:1.3rem;
+}
+footer ul{list-style:none;padding:0;}
+footer ul li{margin-bottom:.65rem;}
+footer ul li a{color:var(--nd-gray);font-size:.88rem;}
+footer ul li a:hover{color:var(--nd-tan-dark);}
+.footer-bottom{
+  border-top:1px solid var(--nd-line);
+  margin-top:3rem;padding:1.3rem 0;
+  font-size:.78rem;color:var(--nd-gray);
+}
+.social-circ{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--nd-line);
+  display:flex;align-items:center;justify-content:center;
+  margin-right:.5rem;font-size:.85rem;
+  transition:.25s;
+}
+.social-circ:hover{background:var(--nd-black);color:#fff;border-color:var(--nd-black);}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+@media(max-width:991px){
+  .form-outer-box { padding: 2rem 1.5rem; }
+  .contact-hero h1 { font-size: 2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR & LANGUAGE SELECTOR -->
+<div class="announce-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="w-100 text-center text-uppercase tracking-wider">
+      <span data-key="announce-text">EUROPE RETAILERS B2B PORTAL</span>
+    </div>
+    <div class="lang-switcher flex-shrink-0 pe-2">
+      <button type="button" class="lang-btn active" id="lang-en" onclick="changeLanguage('en')">EN</button>
+      <span class="text-white-50">|</span>
+      <button type="button" class="lang-btn" id="lang-hu" onclick="changeLanguage('hu')">HU</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="snrlogo.jpg" alt="Sorelli Noir" height="55" class="d-inline-block">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html" data-key="nav-home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="about-us.html" data-key="nav-about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="collection.html" data-key="nav-collection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom active" href="contact.html" data-key="nav-contact">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center justify-content-center mt-3 mt-lg-0">
+        <a href="https://wa.me/36707213987" target="_blank" class="icon-link text-success" title="WhatsApp"><i class="fa-brands fa-whatsapp fs-5"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-user"></i></a>
+        <a href="#" class="icon-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" class="icon-link">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTACT HEADER HERO -->
+<header class="contact-hero container-fluid reveal">
+  <div class="eyebrow" data-key="contact-eyebrow">B2B Wholesale Channel</div>
+  <h1 data-key="contact-title">Contact Our Trade Team</h1>
+</header>
+
+<!-- CHANNELS INFO GRID -->
+<section class="container py-5">
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-4 reveal">
+      <div class="info-card-wrap">
+        <div class="info-icon-box"><i class="fas fa-phone-alt"></i></div>
+        <h3 class="info-card-title" data-key="card-phone-title">Call Channels</h3>
+        <a href="tel:+36707213987" class="info-card-link">+36707213987</a>
+        <span class="info-card-note" data-key="card-phone-note">Mon-Sat: 10AM - 6PM IST</span>
+      </div>
+    </div>
+    <div class="col-md-4 reveal">
+      <div class="info-card-wrap">
+        <div class="info-icon-box"><i class="fab fa-whatsapp"></i></div>
+        <h3 class="info-card-title" data-key="card-wa-title">WhatsApp Direct</h3>
+        <a href="https://wa.me/36707213987" target="_blank" class="info-card-link" data-key="card-wa-link">Chat on WhatsApp</a>
+        <span class="info-card-note" data-key="card-wa-note">Fast response on bulk allocations</span>
+      </div>
+    </div>
+    <div class="col-md-4 reveal">
+      <div class="info-card-wrap">
+        <div class="info-icon-box"><i class="fas fa-envelope"></i></div>
+        <h3 class="info-card-title" data-key="card-mail-title">Official Desk</h3>
+        <a href="mailto:supply.sorellinoir@gmail.com" class="info-card-link">supply.sorellinoir@gmail.com</a>
+        <span class="info-card-note" data-key="card-mail-note">Expect sheets within 24 hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPREHENSIVE TRADE APPLICATION FORM -->
+<section class="container pb-5" id="tradeFormContainer">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 reveal">
+      <div class="form-outer-box">
+        
+        <div class="specs-rule-box">
+          <div class="specs-title" data-key="rules-title">Wholesale Verification Core Rules:</div>
+          <div class="specs-detail" data-key="rules-desc">MOQ: 50 pieces per style. Verified Business / Corporate registration mandatory for catalogue access.</div>
+        </div>
+
+        <form onsubmit="handleTradeSubmit(event, this)">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="custom-input-label" data-key="lbl-name">Full Name *</label>
+              <input type="text" class="custom-form-element" required>
+            </div>
+            <div class="col-md-6">
+              <label class="custom-input-label" data-key="lbl-company">Registered Company / Store *</label>
+              <input type="text" class="custom-form-element" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="custom-input-label" data-key="lbl-phone">Mobile / WhatsApp Number *</label>
+              <input type="tel" class="custom-form-element" placeholder="+36 XXXXX XXXXX" required>
+            </div>
+            <div class="col-md-6">
+              <label class="custom-input-label" data-key="lbl-email">Business Email Address *</label>
+              <input type="email" class="custom-form-element" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label class="custom-input-label" data-key="lbl-location">City &amp; Country *</label>
+              <input type="text" class="custom-form-element" required>
+            </div>
+            <div class="col-md-6">
+              <label class="custom-input-label" data-key="lbl-cat">Core Category of Interest *</label>
+              <select class="custom-form-element" required id="categorySelect">
+                <!-- Dynamically assigned values injected inside scripts configuration -->
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="custom-input-label" data-key="lbl-range">Estimated Order Target (Monthly Range)</label>
+              <select class="custom-form-element">
+                <option>50 – 100 Pcs</option>
+                <option>100 – 300 Pcs</option>
+                <option>300 – 500 Pcs</option>
+                <option>500+ Pcs</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="custom-input-label" data-key="lbl-specs">Additional Branding / Design Specifications</label>
+              <textarea class="custom-form-element" rows="4"></textarea>
+            </div>
+          </div>
+
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-tan px-5" id="submitFormBtn" data-key="btn-submit">Submit Trade Application &rarr;</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <h2 class="mb-3" style="font-family:'Cormorant Garamond',serif;font-weight:700;">Sorelli <span style="color:var(--nd-tan-dark);">Noir</span></h2>
+        <p class="text-secondary" style="font-size:.9rem;" data-key="footer-desc">A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.</p>
+        <div class="d-flex mt-3">
+          <a href="https://wa.me/36707213987" target="_blank" class="social-circ"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/sorellinoirofficial?igsh=MWt2bjRsY3ZkZHpicw==" target="_blank" class="social-circ"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 ps-lg-5">
+        <h6 data-key="footer-links-title">Important Links</h6>
+        <ul>
+          <li><a href="#" data-key="link-cat">Catalogue</a></li>
+          <li><a href="#" data-key="link-stores">Showrooms</a></li>
+          <li><a href="#" data-key="link-gifts">Corporate Gifts</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-4">
+        <h6 data-key="footer-menu-title">Main Menu</h6>
+         <ul>
+          <li><a href="index.html" data-key="nav-home">Home</a></li>
+          <li><a href="about-us.html" data-key="nav-about">About Us</a></li>
+          <li><a href="collection.html" data-key="nav-collection">Shop Collections</a></li>
+          <li><a href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+          <li><a href="contact.html" data-key="nav-contact">Contact Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>&copy; 2026 Sorelli Noir Europe Global. All rights reserved.</span>
+      <span data-key="footer-replica">Wholesale Portal Framework</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Multilingual Translation Dictionary
+const translations = {
+  en: {
+    "announce-text": "EUROPE RETAILERS B2B PORTAL",
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-collection": "Collection",
+    "nav-gallery": "Gallery",
+    "nav-contact": "Contact",
+    "contact-eyebrow": "B2B Wholesale Channel",
+    "contact-title": "Contact Our Trade Team",
+    "card-phone-title": "Call Channels",
+    "card-phone-note": "Mon-Sat: 10AM - 6PM",
+    "card-wa-title": "WhatsApp Direct",
+    "card-wa-link": "Chat on WhatsApp",
+    "card-wa-note": "Fast response on bulk allocations",
+    "card-mail-title": "Official Desk",
+    "card-mail-note": "Expect sheets within 24 hours",
+    "rules-title": "Wholesale Verification Core Rules:",
+    "rules-desc": "MOQ: 50 pieces per style. Verified Business / Corporate registration mandatory for catalogue access.",
+    "lbl-name": "Full Name *",
+    "lbl-company": "Registered Company / Store *",
+    "lbl-phone": "Mobile / WhatsApp Number *",
+    "lbl-email": "Business Email Address *",
+    "lbl-location": "City & Country *",
+    "lbl-cat": "Core Category of Interest *",
+    "lbl-range": "Estimated Order Target (Monthly Range)",
+    "lbl-specs": "Additional Branding / Design Specifications",
+    "btn-submit": "Submit Trade Application \u2192",
+    "btn-processing": "Processing Allocation...",
+    "btn-success": "\u2713 Application Received!",
+    "footer-desc": "A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.",
+    "footer-links-title": "Important Links",
+    "footer-menu-title": "Main Menu",
+    "link-cat": "Catalogue",
+    "link-stores": "Showrooms",
+    "link-gifts": "Corporate Gifts",
+    "footer-replica": "Wholesale Portal Framework"
+  },
+  hu: {
+    "announce-text": "EUR\u00d3PAI KISKERESKED\u0150K B2B PORT\u00c1LJA",
+    "nav-home": "F\u0151oldal",
+    "nav-about": "R\u00f3lunk",
+    "nav-collection": "Kollekci\u00f3",
+    "nav-gallery": "Gal\u00e9ria",
+    "nav-contact": "Kapcsolat",
+    "contact-eyebrow": "B2B Nagykereskedelmi Csatorna",
+    "contact-title": "L\u00e9pjen Kapcsolatba Csapatunkkal",
+    "card-phone-title": "Telefonos El\u00e9rhet\u0151s\u00e9g",
+    "card-phone-note": "H\u00e9t-Szo: 10:00 - 18:00 IST",
+    "card-wa-title": "K\u00f6zvetlen WhatsApp",
+    "card-wa-link": "Cseveg\u00e9s WhatsApp-on",
+    "card-wa-note": "Gyors v\u00e1lasz t\u00f6meges t\u00e9telek eset\u00e9n",
+    "card-mail-title": "Hivatalos E-mail",
+    "card-mail-note": "V\u00e1lasz\u00fclev\u00e9l 24 \u00f3r\u00e1n bel\u00fcl",
+    "rules-title": "Nagykereskedelmi Alapszab\u00e1lyok:",
+    "rules-desc": "MOQ: 50 darab st\u00edlusonk\u00e9nt. Ellen\u0151rz\u00f6tt v\u00e1llalkoz\u00f3i vagy c\u00e9gregisztr\u00e1ci\u00f3 k\u00f6telez\u0151.",
+    "lbl-name": "Teljes N\u00e9v *",
+    "lbl-company": "Bejegyzett C\u00e9g / \u00dczlet N\u00e9v *",
+    "lbl-phone": "Mobil / WhatsApp Sz\u00e1m *",
+    "lbl-email": "\u00dczleti E-mail C\u00edm *",
+    "lbl-location": "V\u00e1ros & Orsz\u00e1g *",
+    "lbl-cat": "Keresett Alapkateg\u00f3ria *",
+    "lbl-range": "Becs\u00fclt Havi Rendel\u00e9si Mennyis\u00e9g",
+    "lbl-specs": "Egyedi M\u00e1rk\u00e1z\u00e1s / K\u00fcl\u00f6nleges Ig\u00e9nyek",
+    "btn-submit": "Kereskedelmi Jelentkez\u00e9s Elk\u00fcld\u00e9se \u2192",
+    "btn-processing": "Feldolgoz\u00e1s folyamatban...",
+    "btn-success": "\u2713 Jelentkez\u00e9s Sikeresen Elk\u00fcldve!",
+    "footer-desc": "Tisztelg\u00e9s a klasszikus B2B glob\u00e1lis tervez\u00e9si szabv\u00e1nyok el\u0151tt, \u00f6tv\u00f6zve a kort\u00e1rs diz\u00e1jnnal, anyagokkal \u00e9s pr\u00e9mium k\u00e9zm\u0171vess\u00e9ggel \u00c1zsi\u00e1ban.",
+    "footer-links-title": "Fontos Linkek",
+    "footer-menu-title": "F\u0151men\u00fc",
+    "link-cat": "Katal\u00f3gus",
+    "link-stores": "Bemutat\u00f3termek",
+    "link-gifts": "V\u00e1llalati Aj\u00e1nd\u00e9kok",
+    "footer-replica": "Nagykereskedelmi Port\u00e1l Rendszer"
+  }
+};
+
+// Dropdown Categories Data Object Matrix
+const formCategoriesData = {
+  en: ["Select alternative", "Jackets & Coats", "Formal/Casual Shoes", "Long Leather Boots", "Ladies Handbags", "Wallets & Belts", "Tourist & Sling Bags", "Full Apparel Range"],
+  hu: ["Válasszon opciót", "Kabátok és Dzsekik", "Alkalmi/Utcai Cipők", "Hosszú Bőrcsizmák", "Női Kézitáskák", "Pénztárcák és Övek", "Turista és Válltáskák", "Teljes Ruházati Választék"]
+};
+
+// Core Multilingual Engine Initialization Setup
+function changeLanguage(lang) {
+  document.documentElement.setAttribute('lang', lang);
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById(`lang-${lang}`);
+  if(activeBtn) activeBtn.classList.add('active');
+  
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // Dynamic selector values generation setup rules
+  const dropdown = document.getElementById('categorySelect');
+  if (dropdown) {
+    const optionsArray = formCategoriesData[lang] || formCategoriesData['en'];
+    dropdown.innerHTML = optionsArray.map((opt, index) => 
+      index === 0 
+        ? `<option value="" disabled selected>${opt}</option>` 
+        : `<option>${opt}</option>`
+    ).join('');
+  }
+
+  try {
+    localStorage.setItem('snr-b2b-lang', lang);
+  } catch (err) {
+    console.warn("Storage runtime access deferred outside server domain environments.");
+  }
+}
+
+// Processing Dynamic Submission Handler Functions Routine rules
+function handleTradeSubmit(event, form) {
+  event.preventDefault();
+  const currentLang = document.documentElement.getAttribute('lang') || 'en';
+  const btn = document.getElementById('submitFormBtn');
+  const fallbackLabel = translations[currentLang]['btn-submit'];
+
+  btn.textContent = translations[currentLang]['btn-processing'];
+  btn.style.opacity = '0.7';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.textContent = translations[currentLang]['btn-success'];
+    btn.style.backgroundColor = '#4a7c59';
+    btn.style.borderColor = '#4a7c59';
+    btn.style.color = '#fff';
+    form.reset();
+    
+    setTimeout(() => {
+      btn.textContent = fallbackLabel;
+      btn.style.backgroundColor = '';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+      btn.style.opacity = '';
+      btn.disabled = false;
+    }, 3500);
+  }, 1500);
+}
+
+// Execution runtime setup loader 
+let savedB2BLang = 'en';
+try {
+  savedB2BLang = localStorage.getItem('snr-b2b-lang') || 'en';
+} catch (err) {
+  savedB2BLang = 'en';
+}
+changeLanguage(savedB2BLang);
+
+// Intersection Animation Module
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { 
+      e.target.classList.add('in'); 
+      observer.unobserve(e.target); 
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

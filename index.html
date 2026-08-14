@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorelli Noir | Genuine Leather Goods Company (B2B Europe)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nd-cream:#f7f4ee;
+  --nd-black:#181410;
+  --nd-tan:#a9743b;
+  --nd-tan-dark:#7c5328;
+  --nd-line:#e3ddd0;
+  --nd-gray:#6b6258;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:'Jost', sans-serif;
+  color:var(--nd-black);
+  background:#fff;
+  letter-spacing:.02em;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,.serif{
+  font-family:'Cormorant Garamond', serif;
+}
+a{text-decoration:none;color:inherit;}
+.btn-tan{
+  background:var(--nd-tan);
+  color:#fff;
+  border-radius:0;
+  padding:.7rem 2rem;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  border:1px solid var(--nd-tan);
+  transition:.3s;
+}
+.btn-tan:hover{background:#fff;color:var(--nd-tan-dark);}
+.btn-outline-dark-thin{
+  border:1px solid var(--nd-black);
+  border-radius:0;
+  padding:.7rem 2rem;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  background:transparent;
+  transition:.3s;
+}
+.btn-outline-dark-thin:hover{background:var(--nd-black);color:#fff;}
+.eyebrow{
+  font-size:.75rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--nd-tan-dark);
+}
+
+/* ===== Top announcement bar ===== */
+.announce-bar{
+  background:var(--nd-black);
+  color:#f1ece2;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-align:center;
+  padding:7px 0;
+  text-transform:uppercase;
+}
+
+/* ===== Language Switcher ===== */
+.lang-btn {
+  background: none;
+  border: none;
+  color: #f1ece2;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s;
+  padding: 0 5px;
+}
+.lang-btn.active, .lang-btn:hover {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ===== Navbar ===== */
+.navbar{
+  padding:1rem 0;
+  background:#fff;
+  border-bottom:1px solid var(--nd-line);
+}
+.navbar-brand{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700;
+  font-size:1.9rem;
+  letter-spacing:.05em;
+}
+.navbar-brand span{color:var(--nd-tan-dark);}
+.nav-link-custom{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--nd-black) !important;
+  padding:.5rem 1rem !important;
+  position:relative;
+}
+.nav-link-custom::after{
+  content:"";
+  position:absolute;
+  left:1rem;right:1rem;bottom:.1rem;
+  height:1px;background:var(--nd-tan-dark);
+  transform:scaleX(0);
+  transition:transform .25s;
+}
+.nav-link-custom:hover::after{transform:scaleX(1);}
+.icon-link{
+  font-size:1.05rem;
+  color:var(--nd-black);
+  margin-left:1.1rem;
+  position:relative;
+}
+.cart-badge{
+  position:absolute;top:-8px;right:-10px;
+  background:var(--nd-tan-dark);
+  color:#fff;
+  font-size:.6rem;
+  border-radius:50%;
+  width:16px;height:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  height:88vh;
+  min-height:560px;
+  overflow:hidden;
+  background:#111;
+}
+.hero .carousel-item{
+  height:88vh;
+  min-height:560px;
+}
+.hero img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.72);
+}
+.hero-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: white;
+  width: 90%;
+}
+.hero-caption .eyebrow{color:#e7d2ad;}
+.hero-caption h1{
+  font-size:3.2rem;
+  font-weight:600;
+  line-height:1.05;
+  margin:.6rem 0 1.2rem;
+}
+.carousel-indicators [data-bs-target]{
+  background-color:#fff;
+  width:8px;height:8px;border-radius:50%;
+  opacity:.5;
+}
+.carousel-indicators .active{opacity:1;}
+
+/* ===== Category strip ===== */
+.cat-strip{padding:4.5rem 0 3rem; overflow: hidden;}
+.section-title{
+  text-align:center;
+  font-size:2.1rem;
+  font-weight:600;
+  margin-bottom:2.5rem;
+}
+.infinite-ticker-container { overflow: hidden; width: 100%; display: flex; position: relative; padding: 10px 0; }
+.ticker-track { display: flex; width: max-content; animation: loopMove 35s linear infinite; }
+.infinite-ticker-container:hover .ticker-track { animation-play-state: paused; }
+.ticker-group { display: flex; align-items: flex-start; justify-content: space-around; gap: 30px; padding-right: 30px; }
+.cat-item { width: 110px; text-align: center; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.cat-circle { width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid var(--nd-line); transition: .3s; }
+.cat-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.cat-item:hover .cat-circle img { transform: scale(1.08); }
+.cat-item:hover .cat-circle { border-color: var(--nd-tan-dark); }
+.cat-label { font-size: 0.85rem; font-weight: 500; color: #333; }
+@keyframes loopMove { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ===== Banners ===== */
+.split-banner{position:relative;overflow:hidden;height:420px;}
+.split-banner img{width:100%;height:100%;object-fit:cover;transition:.6s;}
+.split-banner:hover img{transform:scale(1.05);}
+.split-banner-caption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:2rem;
+  background:linear-gradient(to top, rgba(0,0,0,.55), transparent);
+  color:#fff;
+}
+
+/* ===== Bestsellers ===== */
+.bestseller-tabs{
+  display:flex;justify-content:center;gap:2.5rem;margin-bottom:2.5rem;
+}
+.bestseller-tabs button{
+  background:none;border:none;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  letter-spacing:.05em;
+  color:var(--nd-gray);
+  padding-bottom:.4rem;
+  border-bottom:2px solid transparent;
+}
+.bestseller-tabs button.active{
+  color:var(--nd-black);
+  border-color:var(--nd-tan-dark);
+}
+
+/* Fixed alignment flex column blueprint */
+.product-card{margin-bottom:2.2rem; display: flex; flex-direction: column; height: 100%; justify-content: flex-start;}
+.product-img-wrap{
+  position:relative;overflow:hidden;
+  background:var(--nd-cream);
+  margin-bottom:.5rem;
+  cursor:pointer;
+  width: 100%;
+}
+.product-img-wrap img{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  display: block;
+  transition:.5s;
+}
+.product-card:hover .product-img-wrap img{transform:scale(1.06);filter:brightness(0.85);}
+
+/* Sketch Card Color Palette Container styling */
+.color-swatch-panel {
+  display: flex;
+  gap: 6px;
+  margin: 0.3rem 0 0.5rem;
+  justify-content: flex-start;
+}
+.swatch-node {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.swatch-black { background-color: var(--nd-black); }
+.swatch-tan { background-color: var(--nd-tan); }
+.swatch-cream { background-color: var(--nd-cream); }
+
+/* Interactive Hover Actions Overlay Element */
+.view-details-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(24, 20, 16, 0.1);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+.view-details-btn {
+  background: var(--nd-black);
+  color: #fff;
+  border: 1px solid var(--nd-black);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.3rem;
+  transform: translateY(12px);
+  transition: transform 0.35s ease, background 0.3s ease;
+}
+.product-img-wrap:hover .view-details-overlay { opacity: 1; }
+.product-img-wrap:hover .view-details-btn { transform: translateY(0); }
+.view-details-btn:hover { background: var(--nd-tan-dark); border-color: var(--nd-tan-dark); }
+
+.wishlist-btn{
+  position:absolute;top:12px;right:12px;
+  width:34px;height:34px;border-radius:50%;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;color:var(--nd-black);
+  opacity:0;transition:.25s;z-index: 3;
+}
+.product-card:hover .wishlist-btn{opacity:1;}
+.product-name{
+  font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem;cursor:pointer;transition:.2s;
+  line-height: 1.3;
+}
+.product-name:hover{color:var(--nd-tan-dark);}
+.sold-out-tag{
+  position:absolute;top:12px;left:12px;
+  background:var(--nd-black);color:#fff;
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .6rem;z-index: 3;
+}
+
+/* ===== Collab / Corporate strip ===== */
+.dark-section{
+  background:var(--nd-black);
+  color:#f1ece2;
+  padding:5rem 0;
+}
+.dark-section .section-title{color:#fff;}
+
+/* ===== Stores ===== */
+.store-img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:.8rem;}
+.store-caption{font-size:.82rem;color:var(--nd-gray);}
+
+/* ===== Newsletter ===== */
+.newsletter{
+  background:var(--nd-cream);
+  padding:4.5rem 0;
+  text-align:center;
+}
+.newsletter form{
+  max-width:430px;margin:1.8rem auto 0;
+  display:flex;border-bottom:1px solid var(--nd-black);
+}
+.newsletter input{
+  border:none;background:transparent;flex:1;
+  padding:.6rem .2rem;font-size:.9rem;outline:none;
+}
+.newsletter button{
+  background:none;border:none;
+  text-transform:uppercase;font-size:.78rem;letter-spacing:.12em;
+}
+
+/* ===== Footer ===== */
+footer{background:#fff;padding-top:4rem;border-top:1px solid var(--nd-line);}
+footer h6{
+  text-transform:uppercase;font-size:.78rem;letter-spacing:.15em;margin-bottom:1.3rem;
+}
+footer ul{list-style:none;padding:0;}
+footer ul li{margin-bottom:.65rem;}
+footer ul li a{color:var(--nd-gray);font-size:.88rem;}
+footer ul li a:hover{color:var(--nd-tan-dark);}
+.footer-bottom{
+  border-top:1px solid var(--nd-line);
+  margin-top:3rem;padding:1.3rem 0;
+  font-size:.78rem;color:var(--nd-gray);
+}
+.social-circ{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--nd-line);
+  display:flex;align-items:center;justify-content:center;
+  margin-right:.5rem;font-size:.85rem;
+  transition:.25s;
+}
+.social-circ:hover{background:var(--nd-black);color:#fff;border-color:var(--nd-black);}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* Elegant Premium Bestseller Product PopUp Modal Custom Styles */
+.premium-preview-modal .modal-content {
+  border: 1px solid var(--nd-line);
+  border-radius: 0;
+  background-color: #fff;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.premium-preview-modal .modal-body { padding: 0; }
+.premium-preview-modal .modal-img-container { background: var(--nd-cream); display: flex; align-items: center; justify-content: center; }
+.premium-preview-modal .modal-img-container img { width: 100%; height: 100%; max-height: 520px; object-fit: cover; }
+.premium-preview-modal .modal-info-pane { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+.premium-preview-modal .btn-close-modal {
+  position: absolute; top: 15px; right: 20px; background: transparent; border: none; font-size: 1.25rem; color: var(--nd-black); opacity: 0.6; transition: 0.3s; z-index: 10;
+}
+.premium-preview-modal .btn-close-modal:hover { opacity: 1; transform: rotate(90deg); }
+.premium-preview-modal .spec-table { width: 100%; font-size: 0.82rem; color: var(--nd-gray); margin-bottom: 1.5rem; }
+.premium-preview-modal .spec-table td { padding: 0.4rem 0; border-bottom: 1px dashed var(--nd-line); }
+.premium-preview-modal .spec-table td:last-child { text-align: right; color: var(--nd-black); font-weight: 500; }
+
+@media(max-width:991px){
+  .hero-caption h1{font-size:2.1rem;}
+  .hero{height:70vh;}
+  .hero .carousel-item{height:70vh;}
+  .wishlist-btn { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR & LANGUAGE SELECTOR -->
+<div class="announce-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="w-100 text-center text-uppercase tracking-wider">
+      <span data-key="announce-text">EUROPE RETAILERS B2B PORTAL</span>
+    </div>
+    <div class="lang-switcher flex-shrink-0 pe-2">
+      <button type="button" class="lang-btn active" id="lang-en" onclick="changeLanguage('en')">EN</button>
+      <span class="text-white-50">|</span>
+      <button type="button" class="lang-btn" id="lang-hu" onclick="changeLanguage('hu')">HU</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="snrlogo.jpg" alt="Sorelli Noir" height="55" class="d-inline-block">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link nav-link-custom active" href="index.html" data-key="nav-home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="about-us.html" data-key="nav-about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="collection.html" data-key="nav-collection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="contact.html" data-key="nav-contact">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center justify-content-center mt-3 mt-lg-0">
+        <a href="https://wa.me/36707213987" target="_blank" class="icon-link text-success" title="WhatsApp"><i class="fa-brands fa-whatsapp fs-5"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-user"></i></a>
+        <a href="#" class="icon-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" class="icon-link">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" style="height: 80vh; position: relative; overflow: hidden;">
+  <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+    
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active h-100">
+        <img src="https://thebicyclist.in/cdn/shop/files/The_Bicyclist_Structured_Crossbody_Sling_Shoulder_Bag_for_Women_in_Black_Genuine_Leather_4.webp?v=1740058388" class="d-block w-100 h-100" style="object-fit: cover;" alt="Leather sling bags">
+      </div>
+      <div class="carousel-item h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRwmEntMdOGt6paVwBAm4byqI8g7RWBilt-8lW33OejqD194lpo76OSK65&s=10" class="d-block w-100 h-100" style="object-fit: cover;" alt="Laptop bags">
+      </div>
+      <div class="carousel-item h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgPUIvTZVjOweXF-52RQ_QU-NmQ23kHFvCdPjy8GtI1W-RBWZRDAHyh7s&s=10" class="d-block w-100 h-100" style="object-fit: cover;" alt="Travel luggage">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="hero-caption" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center; width: 100%; pointer-events: none;">
+    <div style="pointer-events: auto;">
+      <div class="eyebrow" id="hero-eyebrow" data-key="hero-eyebrow" style="color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Handcrafted Quality</div>
+      <h1 id="hero-title" data-key="hero-title" style="color: #fff; font-size: 3rem; font-weight: 700;">Leather, Carried<br>With Intention</h1>
+      <a href="#bestsellers" id="hero-btn" data-key="hero-btn" class="btn btn-tan" style="background-color: #d2b48c; color: #000; margin-top: 20px; padding: 10px 30px; border-width: 0;">Shop Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- CATEGORY STRIP -->
+<section class="cat-strip container-fluid my-5">
+  <h2 class="section-title text-center mb-4" data-key="sec-title-cat">Shop By Category</h2>
+  <div class="infinite-ticker-container">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <a href="collection.html" class="cat-item"><div class="cat-circle"><img src="men women.jpeg" alt=""></div><div class="cat-label" data-key="cat-1">Women / Men</div></a>
+        <a href="jacket.html" class="cat-item"><div class="cat-circle"><img src="Men Apparel & Jackets.jpeg" alt=""></div><div class="cat-label" data-key="cat-2">Jackets</div></a>
+        <a href="formalshoes.html" class="cat-item"><div class="cat-circle"><img src="Formal Office Shoes.jpeg" alt=""></div><div class="cat-label" data-key="cat-3">Formal Shoes</div></a>
+        <a href="Casualshoes.html" class="cat-item"><div class="cat-circle"><img src="Casual Shoes.jpeg" alt=""></div><div class="cat-label" data-key="cat-4">Casual Shoes</div></a>
+        <a href="long-boots.html" class="cat-item"><div class="cat-circle"><img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=300&auto=format&fit=crop" alt=""></div><div class="cat-label" data-key="cat-5">Long Boots</div></a>
+        <a href="belts.html" class="cat-item"><div class="cat-circle"><img src="Belts & Wallets (2).jpeg" alt=""></div><div class="cat-label" data-key="cat-6">Belts</div></a>
+        <a href="wallets.html" class="cat-item"><div class="cat-circle"><img src="Belts & Wallets.jpeg" alt=""></div><div class="cat-label" data-key="cat-7">Wallets</div></a>
+        <a href="longcoat.html" class="cat-item"><div class="cat-circle"><img src="Long Coats.jpeg" alt=""></div><div class="cat-label" data-key="cat-8">Long Coats</div></a>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+       <a href="collection.html" class="cat-item"><div class="cat-circle"><img src="men women.jpeg" alt=""></div><div class="cat-label" data-key="cat-1">Women / Men</div></a>
+        <a href="jacket.html" class="cat-item"><div class="cat-circle"><img src="Men Apparel & Jackets.jpeg" alt=""></div><div class="cat-label" data-key="cat-2">Jackets</div></a>
+        <a href="formalshoes.html" class="cat-item"><div class="cat-circle"><img src="Formal Office Shoes.jpeg" alt=""></div><div class="cat-label" data-key="cat-3">Formal Shoes</div></a>
+        <a href="Casualshoes.html" class="cat-item"><div class="cat-circle"><img src="Casual Shoes.jpeg" alt=""></div><div class="cat-label" data-key="cat-4">Casual Shoes</div></a>
+        <a href="long-boots.html" class="cat-item"><div class="cat-circle"><img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=300&auto=format&fit=crop" alt=""></div><div class="cat-label" data-key="cat-5">Long Boots</div></a>
+        <a href="belts.html" class="cat-item"><div class="cat-circle"><img src="Belts & Wallets (2).jpeg" alt=""></div><div class="cat-label" data-key="cat-6">Belts</div></a>
+        <a href="wallets.html" class="cat-item"><div class="cat-circle"><img src="Belts & Wallets.jpeg" alt=""></div><div class="cat-label" data-key="cat-7">Wallets</div></a>
+        <a href="longcoat.html" class="cat-item"><div class="cat-circle"><img src="Long Coats.jpeg" alt=""></div><div class="cat-label" data-key="cat-8">Long Coats</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT BANNERS -->
+<section class="container my-5">
+  <div class="row g-3">
+    <div class="col-md-4 split-banner reveal">
+      <img src="Tourist Waist Bags.jpeg" alt="Luggage collection">
+      <div class="split-banner-caption">
+        <div class="eyebrow text-white-50" data-key="banner-view">View Collection</div>
+        <h4 class="mb-0" data-key="banner-luggage">Luggage</h4>
+      </div>
+    </div>
+    <div class="col-md-4 split-banner reveal">
+      <img src="Tourist Waist Bags (2).jpeg" alt="Accessories collection">
+      <div class="split-banner-caption">
+        <div class="eyebrow text-white-50" data-key="banner-view">View Collection</div>
+        <h4 class="mb-0" data-key="banner-acc">Accessories</h4>
+      </div>
+    </div>
+    <div class="col-md-4 split-banner reveal">
+      <img src="banner3.jpeg" alt="New arrivals">
+      <div class="split-banner-caption">
+        <div class="eyebrow text-white-50" data-key="banner-view">View Collection</div>
+        <h4 class="mb-0" data-key="banner-new">New Arrivals</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section id="bestsellers" class="container py-5">
+  <h2 class="section-title reveal" data-key="sec-title-best">Our Best Sellers</h2>
+  <div class="bestseller-tabs reveal">
+    <button class="active" data-target="men-grid" data-key="tab-men">Men</button>
+    <button data-target="women-grid" data-key="tab-women">Women</button>
+  </div>
+  <div id="men-grid" class="row g-4 bestseller-grid"></div>
+  <div id="women-grid" class="row g-4 bestseller-grid d-none"></div>
+</section>
+
+<!-- COLLABORATIONS -->
+<section id="collab" class="dark-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <img src="https://www.fusionfashionltd.com/assets/img/hero/hero2.jpeg" class="w-100" style="aspect-ratio:4/3;object-fit:cover;" alt="Collaborations">
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="eyebrow" data-key="collab-eyebrow">Limited Edition</div>
+        <h2 class="mt-2 mb-3" style="font-size:2.3rem;" data-key="collab-title">Collaborations</h2>
+        <p class="text-white-50" data-key="collab-desc">Creative partnerships with brands and organisations that share our design philosophy &mdash; limited edition leather goods born from artistic collaboration.</p>
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <div class="eyebrow reveal" data-key="news-eyebrow">Stay in Touch</div>
+    <h2 class="mt-2 reveal" style="font-size:2rem;" data-key="news-title">Subscribe to our Newsletter</h2>
+    <p class="text-secondary reveal" data-key="news-desc">Keep yourself informed about news, events, offers and new additions.</p>
+    <form class="reveal" onsubmit="return false;">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit" data-key="news-btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- SHOWROOMS / STORES -->
+<section id="stores" class="container py-5">
+  <div class="text-center mb-5 reveal">
+    <h2 class="section-title mb-2" data-key="stores-title">Showrooms & Hubs</h2>
+    <p class="text-secondary mx-auto" style="max-width:640px;" data-key="stores-desc">Distribution networks spanning wholesale pipelines globally along with distribution hubs in London and Budapest serving European retailers.</p>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4 reveal">
+      <img class="store-img" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=600&auto=format&fit=crop" alt="London store">
+      <div class="store-caption" data-key="hub-london">Showroom Partner, London, UK</div>
+    </div>
+    <div class="col-md-4 reveal">
+      <img class="store-img" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop" alt="Budapest distribution">
+      <div class="store-caption" data-key="hub-budapest">Distribution Center, Budapest, HU</div>
+    </div>
+    <div class="col-md-4 reveal">
+      <img class="store-img" src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=600&auto=format&fit=crop" alt="Atelier">
+      <div class="store-caption" data-key="hub-asia">Flagship Atelier</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <h2 class="mb-3" style="font-family:'Cormorant Garamond',serif;font-weight:700;">Sorelli <span style="color:var(--nd-tan-dark);">Noir</span></h2>
+        <p class="text-secondary" style="font-size:.9rem;" data-key="footer-desc">A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship globally.</p>
+        <div class="d-flex mt-3">
+          <a href="#" class="social-circ"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 ps-lg-5">
+        <h6 data-key="footer-links-title">Important Links</h6>
+        <ul>
+          <li><a href="#" data-key="link-cat">Catalogue</a></li>
+          <li><a href="#" data-key="link-stores">Showrooms</a></li>
+          <li><a href="#" data-key="link-gifts">Corporate Gifts</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-4">
+        <h6 data-key="footer-menu-title">Main Menu</h6>
+        <ul>
+          <li><a href="index.html" data-key="nav-home">Home</a></li>
+          <li><a href="about-us.html" data-key="nav-about">About Us</a></li>
+          <li><a href="collection.html" data-key="nav-collection">Shop Collections</a></li>
+          <li><a href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+          <li><a href="contact.html" data-key="nav-contact">Contact Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>&copy; 2026 Sorelli Noir Europe Global. All rights reserved.</span>
+      <span data-key="footer-replica">Wholesale Portal Framework</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Interactive Premium Product Quick Preview Popup Modal -->
+<div class="modal fade premium-preview-modal" id="bestSellerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body">
+        <div class="row g-0">
+          <div class="col-md-5 modal-img-container">
+            <img id="modalProductImg" src="" alt="Dynamic Product Preview">
+          </div>
+          <div class="col-md-7 modal-info-pane">
+            <span class="eyebrow mb-1" data-key="modal-eyebrow">B2B Best Seller Selection</span>
+            <h3 class="mb-2 text-uppercase fw-normal" id="modalProductName" style="letter-spacing: 0.05em; font-size: 1.6rem;">Product Title</h3>
+            
+            <p class="text-secondary mb-3" style="font-size: 0.85rem; line-height: 1.6;" data-key="modal-desc">
+              Part of our signature premium catalog. This article is configured for high-volume distributions, matching architectural durability benchmarks with refined craftsmanship.
+            </p>
+            
+            <table class="spec-table">
+              <tr>
+                <td data-key="spec-material-lbl">Material Class</td>
+                <td data-key="spec-material-val">Top Grain Vegetable Tanned Leather</td>
+              </tr>
+              <tr>
+                <td data-key="spec-origin-lbl">Production Center</td>
+                <td data-key="spec-origin-val">Premium Atelier Hub</td>
+              </tr>
+              <tr>
+                <td data-key="spec-tier-lbl">Wholesale Eligibility</td>
+                <td data-key="spec-tier-val">Enterprise Pipelines Only</td>
+              </tr>
+            </table>
+            
+            <!-- Link Redirecting Verbatim to collection.html Page -->
+            <a href="collection.html" class="btn-tan text-center w-100" data-key="modal-btn-link">View Full Collection Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Multilingual Translation Dictionary (Scrubbed of ASIA references)
+const translations = {
+  en: {
+    "announce-text": "EUROPE RETAILERS B2B PORTAL",
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-collection": "Collection",
+    "nav-gallery": "Gallery",
+    "nav-contact": "Contact",
+    "hero-eyebrow": "Handcrafted Premium Quality",
+    "hero-title": "Leather, Carried<br>With Intention",
+    "hero-btn": "Shop Now",
+    "sec-title-cat": "Shop By Category",
+    "sec-title-best": "Our Best Sellers",
+    "tab-men": "Men",
+    "tab-women": "Women",
+    "collab-eyebrow": "Limited Edition",
+    "collab-title": "Collaborations",
+    "collab-desc": "Creative partnerships with brands and organisations that share our design philosophy — limited edition leather goods born from artistic collaboration.",
+    "collab-btn": "See More Collaborations",
+    "news-eyebrow": "Stay in Touch",
+    "news-title": "Subscribe to our Newsletter",
+    "news-desc": "Keep yourself informed about news, events, offers and new additions.",
+    "news-btn": "Subscribe",
+    "stores-title": "Showrooms & Hubs",
+    "stores-desc": "Distribution networks spanning wholesale pipelines globally along with distribution hubs in London and Budapest serving European retailers.",
+    "hub-london": "Showroom Partner, London, UK",
+    "hub-budapest": "Distribution Center, Budapest, HU",
+    "hub-asia": "Flagship Atelier",
+    "footer-desc": "A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship globally.",
+    "footer-links-title": "Important Links",
+    "footer-menu-title": "Main Menu",
+    "link-cat": "Catalogue",
+    "link-stores": "Showrooms",
+    "link-gifts": "Corporate Gifts",
+    "footer-replica": "Wholesale Portal Framework",
+    "cat-1": "Women / Men",
+    "cat-2": "Jackets",
+    "cat-3": "Formal Shoes",
+    "cat-4": "Casual Shoes",
+    "cat-5": "Long Boots",
+    "cat-6": "Belts",
+    "cat-7": "Wallets",
+    "cat-8": "Long Coats",
+    "banner-view": "View Collection",
+    "banner-luggage": "Luggage",
+    "banner-acc": "Accessories",
+    "banner-new": "New Arrivals",
+    "lbl-view-details": "View Details",
+    "modal-eyebrow": "B2B Best Seller Selection",
+    "modal-desc": "Part of our signature premium catalog. This article is configured for high-volume distributions, matching architectural durability benchmarks with refined craftsmanship.",
+    "spec-material-lbl": "Material Class",
+    "spec-material-val": "Top Grain Vegetable Tanned Leather",
+    "spec-origin-lbl": "Production Center",
+    "spec-origin-val": "Premium Atelier Hub",
+    "spec-tier-lbl": "Wholesale Eligibility",
+    "spec-tier-val": "Enterprise Pipelines Only",
+    "modal-btn-link": "View Full Collection Portfolio"
+  },
+  hu: {
+    "announce-text": "EURÓPAI KISKERESKEDŐK B2B PORTÁLJA",
+    "nav-home": "Főoldal",
+    "nav-about": "Rólunk",
+    "nav-collection": "Kollekció",
+    "nav-gallery": "Galéria",
+    "nav-contact": "Kapcsolat",
+    "hero-eyebrow": "Kézzel készített prémium minőség",
+    "hero-title": "Bőr, Tudatosan<br>Viselve",
+    "hero-btn": "Vásárlás",
+    "sec-title-cat": "Böngészés Kategóriák Szerint",
+    "sec-title-best": "Legnépszerűbb Termékeink",
+    "tab-men": "Férfi",
+    "tab-women": "Női",
+    "collab-eyebrow": "Limitált Kiadás",
+    "collab-title": "Együttműködések",
+    "collab-desc": "Kreatív partnershipségek olyan márkákkal és szervezetekkel, amelyek osztoznak tervezési filozófiánkban — művészi együttműködésből született limitált kiadású bőrtermékek.",
+    "collab-btn": "További Együttműködések",
+    "news-eyebrow": "Maradjon Kapcsolatban",
+    "news-title": "Iratkozzon fel Hírlevelünkre",
+    "news-desc": "Értesüljön elsőként a hírekről, eseményekről, ajánlatokról és új termékekről.",
+    "news-btn": "Feliratkozás",
+    "stores-title": "Bemutatótermek és Központok",
+    "stores-desc": "A globális nagykereskedelmi hálózatokat, valamint a regisztrált európai kiskereskedőket kiszolgáló londoni és budapesti elosztó központokat összekötő hálózat.",
+    "hub-london": "Bemutatótermi partner, London, UK",
+    "hub-budapest": "Disztribúciós Központ, Budapest, HU",
+    "hub-asia": "Zászlóshajó Műhely",
+    "footer-desc": "Tisztelgés a klasszikus B2B globális tervezési szabványok előtt, ötvözve a kortárs dizájnnal, anyagokkal és prémium kézművességgel globálisan.",
+    "footer-links-title": "Fontos Linkek",
+    "footer-menu-title": "Főmenü",
+    "link-cat": "Katalógus",
+    "link-stores": "Bemutatótermek",
+    "link-gifts": "Vállalati Ajándékok",
+    "footer-replica": "Nagykereskedelmi Portál Rendszer",
+    "cat-1": "Női / Férfi",
+    "cat-2": "Dzsekik",
+    "cat-3": "Alkalmi Cipők",
+    "cat-4": "Utcai Cipők",
+    "cat-5": "Hosszú Szárú Csizmák",
+    "cat-6": "Övek",
+    "cat-7": "Pénztárcák",
+    "cat-8": "Hosszú Kabátok",
+    "banner-view": "Kollekció Megtekintése",
+    "banner-luggage": "Poggyász",
+    "banner-acc": "Kiegészítők",
+    "banner-new": "Új Érkezők",
+    "lbl-view-details": "Részletek",
+    "modal-eyebrow": "B2B Kiemelt Termékválaszték",
+    "modal-desc": "A kiemelt prémium katalógusunk része. Ez a termék nagy volumenű disztribúcióra lett optimalizálva, ötvözve az időtálló tartósságot a finom kézművességgel.",
+    "spec-material-lbl": "Anyag Típusa",
+    "spec-material-val": "Prémium Növényi Cserzésű Bőr",
+    "spec-origin-lbl": "Gyártó Központ",
+    "spec-origin-val": "Prémium Műhely Központ",
+    "spec-tier-lbl": "Nagykereskedelmi Feltétel",
+    "spec-tier-val": "Kizárólag Vállalati Partnereknek",
+    "modal-btn-link": "Teljes Kollekció Megtekintése"
+  }
+};
+
+// Interactive Language Switcher Core
+function changeLanguage(lang) {
+  document.documentElement.setAttribute('lang', lang);
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById(`lang-${lang}`);
+  if(activeBtn) activeBtn.classList.add('active');
+  
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (translations[lang] && translations[lang][key]) {
+      if (key === 'hero-title') {
+        el.innerHTML = translations[lang][key];
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+
+  localStorage.setItem('snr-b2b-lang', lang);
+  renderGrid('men-grid', products.men, lang);
+  renderGrid('women-grid', products.women, lang);
+}
+
+// Product Arrays (Images unchanged from source)
+const products = {
+  men: [
+    {id: "m1", nameEn:"Men Apparel & Jackets", nameHu:"Férfi ruházat és dzsekik", img:"Men Apparel & Jackets.jpeg"},
+    {id: "m2", nameEn:"Formal Office Shoes", nameHu:"Alkalmi irodai cipők", img:"Formal Office Shoes.jpeg"},
+    {id: "m3", nameEn:"Casual Shoes", nameHu:"Utcai cipők", img:"Casual Shoes.jpeg"},
+    {id: "m4", nameEn:"Long Boots", nameHu:"Hosszú szárú csizmák", img:"https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=700&q=80"},
+    {id: "m5", nameEn:"Belts & Wallets", nameHu:"Övek és pénztárcák", img:"Belts & Wallets.jpeg"},
+    {id: "m6", nameEn:"Long Coats", nameHu:"Hosszú kabátok", img:"Long Coats.jpeg"},
+    {id: "m7", nameEn:"Winter Jackets", nameHu:"Téli dzsekik", img:"Winter Jackets.jpeg"},
+    {id: "m8", nameEn:"Cross Shoulder Bags", nameHu:"Keresztpántos válltáskák", img:"Cross Shoulder Bags.jpeg"},
+    {id: "m9", nameEn:"Tourist Waist Bags", nameHu:"Turista övtáskák", img:"Tourist Waist Bags.jpeg"},
+    {id: "m10", nameEn:"Winter & Gym Gloves", nameHu:"Téli és edzőkesztyűk", img:"Winter & Gym Gloves.jpeg"}
+  ],
+  women: [
+    {id: "w1", nameEn:"Women Apparel & Jackets", nameHu:"Női ruházat és dzsekik", img:"Women Apparel & Jackets.jpeg"},
+    {id: "w2", nameEn:"Office Wear Footwear", nameHu:"Irodai női cipők", img:"Office Wear Footwear.jpeg"},
+    {id: "w3", nameEn:"Casual Shoes & Boots", nameHu:"Női utcai cipők és csizmák", img:"Casual Shoes & Boots.jpeg"},
+    {id: "w4", nameEn:"Belts & Wallets", nameHu:"Övek és pénztárcák", img:"Belts & Wallets (2).jpeg"},
+    {id: "w5", nameEn:"Long Coats & Winterwear", nameHu:"Női hosszú kabátok és téli ruházat", img:"Long Coats & Winterwear.jpeg"},
+    {id: "w6", nameEn:"Ladies Hand Bags", nameHu:"Női kézitáskák", img: "Ladies Hand Bags.jpeg"},
+    {id: "w7", nameEn:"Tourist Waist Bags", nameHu:"Turista övtáskák", img:"Tourist Waist Bags (2).jpeg"}
+  ]
+};
+
+function renderGrid(id, list, lang){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const currentLang = lang || document.documentElement.getAttribute('lang') || 'en';
+  const overlayBtnText = translations[currentLang] && translations[currentLang]['lbl-view-details'] ? translations[currentLang]['lbl-view-details'] : 'View Details';
+  
+  el.innerHTML = list.map(p => {
+    const localizedName = currentLang === 'hu' ? p.nameHu : p.nameEn;
+    return `
+      <div class="col-6 col-md-3 product-card">
+        <div class="product-img-wrap" onclick="openQuickPreview('${id}', '${p.id}')">
+          ${p.soldOut ? '<span class="sold-out-tag">Sold Out</span>' : ''}
+          <img src="${p.img}" alt="${localizedName}">
+          
+          <!-- Hover Actions View Details Trigger Overlay Element -->
+          <div class="view-details-overlay">
+            <button type="button" class="view-details-btn">${overlayBtnText}</button>
+          </div>
+          
+          <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        
+        <!-- Nilesh Sir Specified Sketch Card Swatches -->
+        <div class="color-swatch-panel">
+          <div class="swatch-node swatch-black" title="Sketch Black"></div>
+          <div class="swatch-node swatch-tan" title="Sketch Tan"></div>
+          <div class="swatch-node swatch-cream" title="Sketch Cream"></div>
+        </div>
+
+        <div class="product-name" onclick="openQuickPreview('${id}', '${p.id}')">${localizedName}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Bestseller Modal Controller Configuration
+function openQuickPreview(gridId, productId) {
+  const currentLang = document.documentElement.getAttribute('lang') || 'en';
+  const key = gridId.startsWith('men') ? 'men' : 'women';
+  const item = products[key].find(p => p.id === productId);
+  
+  if(item) {
+    document.getElementById('modalProductImg').src = item.img;
+    document.getElementById('modalProductName').textContent = currentLang === 'hu' ? item.nameHu : item.nameEn;
+    
+    const previewModal = new bootstrap.Modal(document.getElementById('bestSellerModal'));
+    previewModal.show();
+  }
+}
+
+// Tab switcher handler
+document.querySelectorAll('.bestseller-tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.bestseller-tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.bestseller-grid').forEach(g=>g.classList.add('d-none'));
+    document.getElementById(btn.dataset.target).classList.remove('d-none');
+  });
+});
+
+// Runtime Initialization
+const currentRuntimeLang = localStorage.getItem('snr-b2b-lang') || 'en';
+changeLanguage(currentRuntimeLang);
+
+// scroll reveal
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

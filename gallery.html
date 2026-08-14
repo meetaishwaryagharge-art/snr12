@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Editorial Lookbook | Sorelli Noir B2B Europe</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nd-cream:#f7f4ee;
+  --nd-black:#181410;
+  --nd-tan:#a9743b;
+  --nd-tan-dark:#7c5328;
+  --nd-line:#e3ddd0;
+  --nd-gray:#6b6258;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:'Jost', sans-serif;
+  color:var(--nd-black);
+  background:#fff;
+  letter-spacing:.02em;
+}
+h1,h2,h3,h4,.serif{
+  font-family:'Cormorant Garamond', serif;
+}
+a{text-decoration:none;color:inherit;}
+.btn-tan{
+  background:var(--nd-tan);
+  color:#fff;
+  border-radius:0;
+  padding:.7rem 2rem;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  border:1px solid var(--nd-tan);
+  transition:.3s;
+}
+.btn-tan:hover{background:#fff;color:var(--nd-tan-dark);}
+.btn-outline-dark-thin{
+  border:1px solid var(--nd-black);
+  border-radius:0;
+  padding:.7rem 2rem;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  background:transparent;
+  transition:.3s;
+}
+.btn-outline-dark-thin:hover{background:var(--nd-black);color:#fff;}
+.eyebrow{
+  font-size:.75rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--nd-tan-dark);
+}
+
+/* ===== Top announcement bar ===== */
+.announce-bar{
+  background:var(--nd-black);
+  color:#f1ece2;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-align:center;
+  padding:7px 0;
+  text-transform:uppercase;
+}
+
+/* ===== Language Switcher ===== */
+.lang-btn {
+  background: none;
+  border: none;
+  color: #f1ece2;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s;
+  padding: 0 5px;
+}
+.lang-btn.active, .lang-btn:hover {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* Dual Language Display Controls */
+html[lang="en"] .lang-hu { display: none !important; }
+html[lang="hu"] .lang-en { display: none !important; }
+
+/* ===== Navbar ===== */
+.navbar{
+  padding:1rem 0;
+  background:#fff;
+  border-bottom:1px solid var(--nd-line);
+}
+.navbar-brand{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700;
+  font-size:1.9rem;
+  letter-spacing:.05em;
+}
+.navbar-brand span{color:var(--nd-tan-dark);}
+.nav-link-custom{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--nd-black) !important;
+  padding:.5rem 1rem !important;
+  position:relative;
+}
+.nav-link-custom::after{
+  content:"";
+  position:absolute;
+  left:1rem;right:1rem;bottom:.1rem;
+  height:1px;background:var(--nd-tan-dark);
+  transform:scaleX(0);
+  transition:transform .25s;
+}
+.nav-link-custom:hover::after{transform:scaleX(1);}
+.icon-link{
+  font-size:1.05rem;
+  color:var(--nd-black);
+  margin-left:1.1rem;
+  position:relative;
+}
+.cart-badge{
+  position:absolute;top:-8px;right:-10px;
+  background:var(--nd-tan-dark);
+  color:#fff;
+  font-size:.6rem;
+  border-radius:50%;
+  width:16px;height:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== Gallery Editorial Layout ===== */
+.gallery-intro {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+.gallery-intro h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.gallery-intro p {
+  color: var(--nd-gray);
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.lookbook-row {
+  margin-bottom: 6rem;
+  align-items: center;
+}
+.lookbook-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--nd-cream);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+.lookbook-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+.lookbook-row:hover .lookbook-img-wrap img {
+  transform: scale(1.03);
+}
+.lookbook-index {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: var(--nd-line);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.lookbook-cat {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--nd-tan);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.lookbook-name {
+  font-size: 2rem;
+  color: var(--nd-black);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.lookbook-desc {
+  color: var(--nd-gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.rule-gold {
+  width: 60px;
+  height: 1px;
+  background: var(--nd-tan);
+  margin: 4rem auto;
+  opacity: 0.4;
+}
+
+/* ===== Footer ===== */
+footer{background:#fff;padding-top:4rem;border-top:1px solid var(--nd-line);}
+footer h6{
+  text-transform:uppercase;font-size:.78rem;letter-spacing:.15em;margin-bottom:1.3rem;
+}
+footer ul{list-style:none;padding:0;}
+footer ul li{margin-bottom:.65rem;}
+footer ul li a{color:var(--nd-gray);font-size:.88rem;}
+footer ul li a:hover{color:var(--nd-tan-dark);}
+.footer-bottom{
+  border-top:1px solid var(--nd-line);
+  margin-top:3rem;padding:1.3rem 0;
+  font-size:.78rem;color:var(--nd-gray);
+}
+.social-circ{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--nd-line);
+  display:flex;align-items:center;justify-content:center;
+  margin-right:.5rem;font-size:.85rem;
+  transition:.25s;
+}
+.social-circ:hover{background:var(--nd-black);color:#fff;border-color:var(--nd-black);}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+@media(max-width:991px){
+  .lookbook-row { margin-bottom: 4rem; }
+  .lookbook-img-wrap { height: 350px !important; margin-bottom: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR & LANGUAGE SELECTOR -->
+<div class="announce-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="w-100 text-center text-uppercase tracking-wider">
+      <span data-key="announce-text">EUROPE RETAILERS B2B PORTAL</span>
+    </div>
+    <div class="lang-switcher flex-shrink-0 pe-2">
+      <button type="button" class="lang-btn active" id="lang-en" onclick="changeLanguage('en')">EN</button>
+      <span class="text-white-50">|</span>
+      <button type="button" class="lang-btn" id="lang-hu" onclick="changeLanguage('hu')">HU</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="snrlogo.jpg" alt="Sorelli Noir" height="55" class="d-inline-block">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html" data-key="nav-home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="about-us.html" data-key="nav-about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="collection.html" data-key="nav-collection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom active" href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="contact.html" data-key="nav-contact">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center justify-content-center mt-3 mt-lg-0">
+        <a href="https://wa.me/36707213987" target="_blank" class="icon-link text-success" title="WhatsApp"><i class="fa-brands fa-whatsapp fs-5"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-user"></i></a>
+        <a href="#" class="icon-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" class="icon-link">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- INTRO HEADER -->
+<header class="gallery-intro container reveal">
+  <div class="eyebrow"><span class="lang-en">Visual Lookbook</span><span class="lang-hu">Vizuális Lookbook</span></div>
+  <h1><span class="lang-en">Our Complete Portfolio</span><span class="lang-hu">A Teljes Portfóliónk</span></h1>
+  <p>
+    <span class="lang-en">An editorial lookbook showcasing our core wholesale leather segments. Refined lines, consistent stitching, and retail-ready architecture.</span>
+    <span class="lang-hu">Egy szerkesztői lookbook, amely bemutatja főbb nagykereskedelmi bőráru-szegmenseinket. Letisztult vonalak, egyenletes varrás és kereskedelemre kész felépítés.</span>
+  </p>
+</header>
+
+<!-- CINEMATIC LOOKBOOK DISPLAYS -->
+<main class="container py-4" id="lookbookContainer"></main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <h2 class="mb-3" style="font-family:'Cormorant Garamond',serif;font-weight:700;">Sorelli <span style="color:var(--nd-tan-dark);">Noir</span></h2>
+        <p class="text-secondary" style="font-size:.9rem;" data-key="footer-desc">A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.</p>
+        <div class="d-flex mt-3">
+          <a href="https://wa.me/36707213987" target="_blank" class="social-circ"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 ps-lg-5">
+        <h6 data-key="footer-links-title">Important Links</h6>
+        <ul>
+          <li><a href="#" data-key="link-cat">Catalogue</a></li>
+          <li><a href="#" data-key="link-stores">Showrooms</a></li>
+          <li><a href="#" data-key="link-gifts">Corporate Gifts</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-4">
+        <h6 data-key="footer-menu-title">Main Menu</h6>
+        <ul>
+          <li><a href="index.html" data-key="nav-home">Home</a></li>
+          <li><a href="about-us.html" data-key="nav-about">About Us</a></li>
+          <li><a href="collection.html" data-key="nav-collection">Shop Collections</a></li>
+          <li><a href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+          <li><a href="contact.html" data-key="nav-contact">Contact Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>&copy; 2026 Sorelli Noir Europe Global. All rights reserved.</span>
+      <span data-key="footer-replica">Wholesale Portal Framework</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Multilingual Translation Dictionary
+const translations = {
+  en: {
+    "announce-text": "EUROPE RETAILERS B2B PORTAL",
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-collection": "Collection",
+    "nav-gallery": "Gallery",
+    "nav-contact": "Contact",
+    "footer-desc": "A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.",
+    "footer-links-title": "Important Links",
+    "footer-menu-title": "Main Menu",
+    "link-cat": "Catalogue",
+    "link-stores": "Showrooms",
+    "link-gifts": "Corporate Gifts",
+    "footer-replica": "Wholesale Portal Framework",
+    "enquire-btn": "Enquire Segment"
+  },
+  hu: {
+    "announce-text": "EURÓPAI KISKERESKEDŐK B2B PORTÁLJA",
+    "nav-home": "Főoldal",
+    "nav-about": "Rólunk",
+    "nav-collection": "Kollekció",
+    "nav-gallery": "Galéria",
+    "nav-contact": "Kapcsolat",
+    "footer-desc": "Tisztelgés a klasszikus B2B globális tervezési szabványok előtt, ötvözve a kortárs dizájnnal, anyagokkal és prémium kézművességgel Ázsiában.",
+    "footer-links-title": "Fontos Linkek",
+    "footer-menu-title": "Főmenü",
+    "link-cat": "Katalógus",
+    "link-stores": "Bemutatótermek",
+    "link-gifts": "Vállalati Ajándékok",
+    "footer-replica": "Nagykereskedelmi Portál Rendszer",
+    "enquire-btn": "Szegmens Érdeklődés"
+  }
+};
+
+// 14 Editorial Lookbook Segments Data Extract
+const lookbookData = [
+  {
+    index: "01",
+    catEn: "Core Line · Unisex Available", catHu: "Alapvonal · Unisex Elérhető",
+    nameEn: "Women / Men Premium Collection", nameHu: "Női / Férfi Prémium Kollekció",
+    descEn: "Tailored high-grade leather apparel segments curated individually for elite styling preferences. Perfect cornerstone inventory setups for premium modern boutiques.",
+    descHu: "Egyedileg szabott, prémium minőségű bőrruházati szegmensek az elit stíluspreferenciákhoz igazítva. TöKisszékű készlet prémium modern butikok számára.",
+    img: "banner1.jpeg"
+  },
+  {
+    index: "02",
+    catEn: "Best Seller", catHu: "Legnépszerűbb",
+    nameEn: "Classic Leather Jackets", nameHu: "Klasszikus Bőrkabátok",
+    descEn: "Heavyweight top-grain finish jackets with pristine hardware accents and custom brand lining options. Timeless profiles offering profound protection and pure aesthetic definition.",
+    descHu: "Nehéz, kiváló felületű bőrdzsekik kifogástalan fém kiegészítőkkel és egyedi márkás bélésopciókkal. Időtlen profilok, amelyek mély védelmet és tiszta esztétikai meghatározást nyújtanak.",
+    img: "Winter Jackets.jpeg"
+  },
+  {
+    index: "03",
+    catEn: "Executive Segment", catHu: "Vezetői Szegmens",
+    nameEn: "Formal Office Wear Shoes", nameHu: "Hivatalos Irodai Cipők",
+    descEn: "Genuine full-grain oxfords and loafers designed specifically for the sharp corporate ecosystem. Built with absolute cushion stability to secure everyday reliability flawlessly.",
+    descHu: "Valódi bőrből készült oxford cipők és loferek, kifejezetten a határozott üzleti megjelenéshez. Abszolút párnázott stabilitással építve a mindennapi kényelemért.",
+    img: "Formal Office Shoes.jpeg"
+  },
+  {
+    index: "04",
+    catEn: "High Volume Movement", catHu: "Nagy Mennyiségű Értékesítés",
+    nameEn: "Casual Leather Shoes", nameHu: "Laza Bőrcipők",
+    descEn: "Perfect everyday comfort sneakers and slip-on footwear constructed using premium treated hides. Blends robust structural life seamlessly with high-profile city aesthetics.",
+    descHu: "Tökéletes mindennapi kényelmet biztosító sneakerek és belebújós cipők prémium kezelt bőrből. Ötvözi a robusztus szerkezetet a magasszintű városi esztétikával.",
+    img: "Casual Shoes.jpeg"
+  },
+  {
+    index: "05",
+    catEn: "Seasonal Essential", catHu: "Szezonális Alapkellék",
+    nameEn: "Luxury Long Boots", nameHu: "Luxus Hosszú Szárú Csizmák",
+    descEn: "High-profile calves coverage and unmatched silhouette definition for high-end boutique storefronts. Provides complete internal lining configurations for winter protection.",
+    descHu: "Magas szárú és páratlan sziluettet biztosító csizmák exkluzív butikok kirakataiba. Teljes belső béléskonfigurációval a téli időjárás elleni védelemért.",
+    img: "Casual Shoes & Boots.jpeg"
+  },
+  {
+    index: "06",
+    catEn: "Perfect Counter Item", catHu: "Tökéletes Pult melletti Termék",
+    nameEn: "Classic Leather Belts", nameHu: "Klasszikus Bőrövek",
+    descEn: "Solid robust leather straps featuring pure brass or gunmetal polished multi-option buckles. An ideal secondary accessory item built to optimize high wholesale conversions.",
+    descHu: "Masszív, robusztus bőrszíjak tiszta sárgaréz vagy fegyverszürke polírozott többgombos csatokkal. Ideális kiegészítő termék a nagykereslelmi konverzió optimalizálására.",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwG-spbN3nX_5TON7Yp40arz10kWipyrVqNw&s"
+  },
+  {
+    index: "07",
+    catEn: "RFID Protection Available", catHu: "RFID Védelemmel Elérhető",
+    nameEn: "Minimalist & Bifold Wallets", nameHu: "Minimalista & Kétrészes Pénztárcák",
+    descEn: "Exquisitely stitched sleek profiles with smart internal organization slots for bulk merchandising. Features custom premium grade shield technology seamlessly embedded.",
+    descHu: "Gondosan varrt, letisztult profilok okos belső elrendezéssel a hatékony nagykereskedelmi értékesítéshez. Prémium minőségű, beágyazott védelmi technológiával.",
+    img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80"
+  },
+  {
+    index: "08",
+    catEn: "Premium Apparel", catHu: "Prémium Ruházat",
+    nameEn: "Signature Long Coats", nameHu: "Egyedi Hosszú Kabátok",
+    descEn: "Timeless full-length leather outerwear options offering profound windproofing and luxury finish. Perfectly structured shoulder profiles tailored for professional branding layouts.",
+    descHu: "Időtlen, teljes hosszúságú bőr felsőruházati opciók kiváló szélállósággal és luxus kidolgozással. Tökéletesen strukturált vállprofilok, egyedi márkajelzésekhez szabva.",
+    img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&q=80"
+  },
+  {
+    index: "09",
+    catEn: "Insulated Range", catHu: "Szigetelt Termékcsalád",
+    nameEn: "Heavy Winter Jackets", nameHu: "Vastag Téli Kabátok",
+    descEn: "Equipped with internal faux fur thermal lining layers to combat harsh dropping temperatures. Double reinforced seams ensure incredible performance criteria across cold climates.",
+    descHu: "Belső műszőrme hőszigetelő béléssel ellátva a rendkívül hideg téli napokra. A duplán megerősített varrások hihetetlen tartósságot biztosítanak hideg éghajlaton is.",
+    img: "https://images.unsplash.com/photo-1544923246-77307dd654cb?w=600&q=80"
+  },
+  {
+    index: "10",
+    catEn: "High Margin Item", catHu: "Magas Profitot Biztosító Termék",
+    nameEn: "Pragmatic Ladies Hand Bags", nameHu: "Praktikus Női Kézitáskák",
+    descEn: "Structured build totes and satchels matching modern lifestyle storage needs beautifully. Fitted with scratch-resistant surface shield protections for high retail longevity.",
+    descHu: "Strukturált kialakítású pakolós táskák, amelyek gyönyörűen megfelelnek a modern életstílus igényeinek. Karcálló felületi védelemmel a hosszú élettartam érdekében.",
+    img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=80"
+  },
+  {
+    index: "11",
+    catEn: "Urban Trend", catHu: "Városi Trend",
+    nameEn: "Men's Cross Shoulder Sling Bags", nameHu: "Férfi Keresztpántos Válltáskák",
+    descEn: "Ergonomic layout positioning for secured everyday travel storage carrying utilities flawlessly. High-grade premium zippers integrated directly to safeguard robust usage rules.",
+    descHu: "Ergonomikus elrendezés a biztonságos mindennapi tároláshoz és a használati tárgyak hibátlan hordozásához. Prémium minőségű cipzárakkal a robusztus használatért.",
+    img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=80"
+  },
+  {
+    index: "12",
+    catEn: "Travel Utilities", catHu: "Utazási Kellékek",
+    nameEn: "Tourist Premium Waist Bags", nameHu: "Prémium Turista Övtáskák",
+    descEn: "Compact waist-bound leather pouches styled strategically to enable fast-access compartmentalization. Excellent structural stability ideal for fast-moving transit storage layout specs.",
+    descHu: "Kompakt, derékra rögzíthető bőrtáskák, stratégiailag tervezve a gyorsan hozzáférhető rendszerezésért. Kiváló szerkezeti stabilitás az utazási igényekhez igazítva.",
+    img: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=700&q=80"
+  },
+  {
+    index: "13",
+    catEn: "Thermal Defense", catHu: "Védelem a Hideg Ellen",
+    nameEn: "Insulated Winter Hand Gloves", nameHu: "Hőszigetelt Téli Bőrkesztyűk",
+    descEn: "Supple skin touch exterior combined with comfortable internal heating cloth layer arrays. Fully adaptive structure profile that retains movement elasticity flawlessly over time.",
+    descHu: "Finom tapintású külső bőr, kényelmes belső melegítő bélésrétegekkel kombinálva. Teljesen adaptív struktúra, amely tökéletesen megőrzi a mozgás szabadságát.",
+    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80"
+  },
+  {
+    index: "14",
+    catEn: "Heavy Duty Utility", catHu: "Nagy Teherbírású Utility",
+    nameEn: "Reinforced Leather Gym Gloves", nameHu: "Megerősített Edzőtermi Bőrkesztyűk",
+    descEn: "Breathable, padded palm constructs mapped precisely to optimize solid anti-slip physical grips. Engineered carefully using sweat-resistant reinforced lining matrix overlays.",
+    descHu: "Légáteresztő, párnázott tenyérkialakítás, pontosan megtervezve a szilárd, csúszásmentes fogásért. Izzadságálló, megerősített bélésmatricával ellátva.",
+    img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=700&q=80"
+  }
+];
+
+// Initialize global IntersectionObserver early so it is ready before initial execution loops
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { 
+      e.target.classList.add('in'); 
+      observer.unobserve(e.target); 
+    }
+  });
+}, { threshold: 0.12 });
+
+// Interactive Translation Swapper
+function changeLanguage(lang) {
+  document.documentElement.setAttribute('lang', lang);
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById(`lang-${lang}`);
+  if(activeBtn) activeBtn.classList.add('active');
+  
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // Safe wrapping for LocalStorage to allow local development testing (file://)
+  try {
+    localStorage.setItem('snr-b2b-lang', lang);
+  } catch (err) {
+    console.warn("Storage write blocked: local file preview environment detected.");
+  }
+  
+  renderLookbook(lang);
+}
+
+// Generate Alternating Cinematic Grid
+function renderLookbook(lang) {
+  const container = document.getElementById('lookbookContainer');
+  if(!container) return;
+
+  container.innerHTML = lookbookData.map((item, idx) => {
+    const isEven = idx % 2 === 0;
+    const rowDirectionClass = isEven ? '' : 'flex-lg-row-reverse';
+    const textAlignmentClass = isEven ? '' : 'text-lg-end';
+    const enquireLabel = translations[lang] && translations[lang]['enquire-btn'] ? translations[lang]['enquire-btn'] : 'Enquire Segment';
+    
+    return `
+      <div class="row lookbook-row g-5 ${rowDirectionClass} reveal">
+        <div class="col-lg-7">
+          <div class="lookbook-img-wrap" style="height: 480px;">
+            <img src="${item.img}" alt="Lookbook Segment Asset">
+          </div>
+        </div>
+        <div class="col-lg-5 ps-lg-4 pe-lg-4 ${textAlignmentClass}">
+          <span class="lookbook-index">${item.index}</span>
+          <span class="lookbook-cat">${lang === 'hu' ? item.catHu : item.catEn}</span>
+          <h3 class="lookbook-name">${lang === 'hu' ? item.nameHu : item.nameEn}</h3>
+          <p class="lookbook-desc">${lang === 'hu' ? item.descHu : item.descEn}</p>
+          <a href="contact.html" class="btn btn-outline-dark-thin">${enquireLabel}</a>
+        </div>
+      </div>
+      ${idx < lookbookData.length - 1 ? '<div class="rule-gold mx-auto"></div>' : ''}
+    `;
+  }).join('');
+
+  // Elements exist in the DOM now; safe to pass to observer targets
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// Safe read initialization runtime call execution setup
+let savedB2BLang = 'en';
+try {
+  savedB2BLang = localStorage.getItem('snr-b2b-lang') || 'en';
+} catch (err) {
+  savedB2BLang = 'en';
+}
+changeLanguage(savedB2BLang);
+</script>
+</body>
+</html>

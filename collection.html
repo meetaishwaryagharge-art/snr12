@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odyssey Collection | Sorelli Noir Leather Company</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nd-cream:#f7f4ee;
+  --nd-black:#181410;
+  --nd-tan:#a9743b;
+  --nd-tan-dark:#7c5328;
+  --nd-line:#e3ddd0;
+  --nd-gray:#6b6258;
+}
+*{box-sizing:border-box;}
+body{font-family:'Jost', sans-serif;color:var(--nd-black);background:#fff;letter-spacing:.02em;}
+h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond', serif;}
+a{text-decoration:none;color:inherit;}
+.eyebrow{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--nd-tan-dark);}
+.btn-tan{background:var(--nd-tan);color:#fff;border-radius:0;padding:.65rem 1.8rem;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;border:1px solid var(--nd-tan);transition:.3s;}
+.btn-tan:hover{background:#fff;color:var(--nd-tan-dark);}
+.btn-outline-dark-thin{border:1px solid var(--nd-black);border-radius:0;padding:.6rem 1.6rem;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;background:transparent;transition:.3s;}
+.btn-outline-dark-thin:hover{background:var(--nd-black);color:#fff;}
+
+.announce-bar{background:var(--nd-black);color:#f1ece2;font-size:.72rem;letter-spacing:.2em;text-align:center;padding:7px 0;text-transform:uppercase;}
+.lang-btn {
+  background: none;
+  border: none;
+  color: #f1ece2;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s;
+  padding: 0 5px;
+}
+.lang-btn.active, .lang-btn:hover { opacity: 1; font-weight: 600; }
+
+/* Dual Language Display Controls */
+html[lang="en"] .lang-hu { display: none !important; }
+html[lang="hu"] .lang-en { display: none !important; }
+
+.navbar{padding:1rem 0;background:#fff;border-bottom:1px solid var(--nd-line);}
+.navbar-brand{font-family:'Cormorant Garamond', serif;font-weight:700;font-size:1.9rem;letter-spacing:.05em;}
+.navbar-brand span{color:var(--nd-tan-dark);}
+.nav-link-custom{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--nd-black) !important;padding:.5rem 1rem !important;position:relative;}
+.nav-link-custom::after{content:"";position:absolute;left:1rem;right:1rem;bottom:.1rem;height:1px;background:var(--nd-tan-dark);transform:scaleX(0);transition:transform .25s;}
+.nav-link-custom:hover::after{transform:scaleX(1);}
+.icon-link{font-size:1.05rem;color:var(--nd-black);margin-left:1.1rem;position:relative;}
+.cart-badge{position:absolute;top:-8px;right:-10px;background:var(--nd-tan-dark);color:#fff;font-size:.6rem;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;}
+
+/* Collection banner */
+.collection-banner{position:relative;height:340px;overflow:hidden;}
+.collection-banner img{width:100%;height:100%;object-fit:cover;filter:brightness(.62);}
+.collection-banner-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 1rem;}
+.collection-banner-text h1{font-size:2.8rem;font-weight:600;margin-bottom:.6rem;}
+.collection-banner-text p{max-width:560px;font-size:.95rem;color:#e8e0d2;}
+
+/* filter/sort toolbar */
+.toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.4rem 0;}
+.toolbar .left-controls{display:flex;gap:.8rem;}
+.pill-btn{border:1px solid var(--nd-line);background:#fff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 1.5rem;display:flex;align-items:center;gap:.5rem;transition:.25s;}
+.pill-btn:hover{border-color:var(--nd-black);}
+.result-count{font-size:.82rem;color:var(--nd-gray);}
+.sort-select{border:1px solid var(--nd-line);background:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;padding:.5rem 1rem;}
+
+/* product grid */
+.product-card{margin-bottom:2.4rem; display: flex; flex-direction: column; height: 100%; justify-content: flex-start;}
+.product-img-wrap{position:relative;overflow:hidden;background:var(--nd-cream);margin-bottom:.5rem;cursor:pointer;width: 100%;}
+.product-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;display: block;transition:.5s;}
+.product-card:hover .product-img-wrap img{transform:scale(1.06);filter: brightness(0.85);}
+
+/* Sketch Card Color Palette Container styling */
+.color-swatch-panel {
+  display: flex;
+  gap: 6px;
+  margin: 0.3rem 0 0.5rem;
+  justify-content: flex-start;
+}
+.swatch-node {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.swatch-black { background-color: var(--nd-black); }
+.swatch-tan { background-color: var(--nd-tan); }
+.swatch-cream { background-color: var(--nd-cream); }
+
+/* Wishlist Button */
+.wishlist-btn{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--nd-black);opacity:0;transition:.25s;z-index: 3;}
+.product-card:hover .wishlist-btn{opacity:1;}
+
+/* Elegant Hover View More Overlay Button */
+.view-more-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(24, 20, 16, 0.1); 
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+.view-more-btn {
+  background: var(--nd-black);
+  color: #fff;
+  border: 1px solid var(--nd-black);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.3rem;
+  transform: translateY(12px);
+  transition: transform 0.35s ease, background 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+.product-img-wrap:hover .view-more-overlay {
+  opacity: 1;
+}
+.product-img-wrap:hover .view-more-btn {
+  transform: translateY(0);
+}
+.view-more-btn:hover {
+  background: var(--nd-tan-dark);
+  border-color: var(--nd-tan-dark);
+  color: #fff;
+}
+
+.product-name{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem;cursor:pointer;transition:.2s;line-height: 1.3;}
+.product-name:hover{color:var(--nd-tan-dark);}
+.sold-out-tag{position:absolute;top:12px;left:12px;background:var(--nd-black);color:#fff;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;z-index: 3;}
+
+/* filter panel */
+.filter-group{border-bottom:1px solid var(--nd-line);padding:1.4rem 0;}
+.filter-group h6{text-transform:uppercase;font-size:.8rem;letter-spacing:.12em;margin-bottom:1rem;}
+.filter-group .form-check{margin-bottom:.6rem;}
+.filter-group .form-check-label{font-size:.88rem;color:var(--nd-gray);}
+
+footer{background:#fff;padding-top:4rem;border-top:1px solid var(--nd-line);}
+footer h6{text-transform:uppercase;font-size:.78rem;letter-spacing:.15em;margin-bottom:1.3rem;}
+footer ul{list-style:none;padding:0;}
+footer ul li{margin-bottom:.65rem;}
+footer ul li a{color:var(--nd-gray);font-size:.88rem;}
+footer ul li a:hover{color:var(--nd-tan-dark);}
+.footer-bottom{border-top:1px solid var(--nd-line);margin-top:3rem;padding:1.3rem 0;font-size:.78rem;color:var(--nd-gray);}
+.social-circ{width:34px;height:34px;border-radius:50%;border:1px solid var(--nd-line);display:flex;align-items:center;justify-content:center;margin-right:.5rem;font-size:.85rem;transition:.25s;}
+.social-circ:hover{background:var(--nd-black);color:#fff;border-color:var(--nd-black);}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<div class="announce-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="w-100 text-center text-uppercase tracking-wider">
+      <span data-key="announce-text">EUROPE RETAILERS B2B PORTAL</span>
+    </div>
+    <div class="lang-switcher flex-shrink-0 pe-2">
+      <button type="button" class="lang-btn active" id="lang-en" onclick="changeLanguage('en')">EN</button>
+      <span class="text-white-50">|</span>
+      <button type="button" class="lang-btn" id="lang-hu" onclick="changeLanguage('hu')">HU</button>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="snrlogo.jpg" alt="Sorelli Noir" height="55" class="d-inline-block">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html" data-key="nav-home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="about-us.html" data-key="nav-about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom active" href="collection.html" data-key="nav-collection">Collection</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="contact.html" data-key="nav-contact">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center justify-content-center mt-3 mt-lg-0">
+        <a href="https://wa.me/36707213987" target="_blank" class="icon-link text-success" title="WhatsApp"><i class="fa-brands fa-whatsapp fs-5"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-user"></i></a>
+        <a href="#" class="icon-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="icon-link"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" class="icon-link">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="collection-banner reveal">
+  <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1600&auto=format&fit=crop" alt="Collection banner">
+  <div class="collection-banner-text">
+    <div class="eyebrow" style="color:#e7d2ad;" data-key="banner-eyebrow">Travel Bags</div>
+    <h1 data-key="banner-title"> Collection</h1>
+    <p data-key="banner-desc">A line of leather travel bags built for movement and discovery — made for those who carry their own sense of direction wherever they go.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="toolbar">
+    <div class="left-controls">
+      <button class="pill-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterPanel">
+        <i class="fa-solid fa-sliders"></i> <span data-key="toolbar-filter">Filter</span>
+      </button>
+      <span class="result-count align-self-center"><span class="item-count">17</span> <span data-key="toolbar-count">products</span></span>
+    </div>
+   <div>
+      <select class="sort-select" id="sortSelect">
+        <option value="featured">Sort: Featured</option>
+        <option value="best">Best Selling</option>
+        <option value="az">Alphabetically, A-Z</option>
+        <option value="za">Alphabetically, Z-A</option>
+        <option value="low">Price, Low to High</option>
+        <option value="high">Price, High to Low</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 d-none d-lg-block">
+      <div class="filter-group">
+        <h6 data-key="filter-avail">Availability</h6>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="inStock"><label class="form-check-label" for="inStock"><span data-key="filter-instock">In stock</span> (17)</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="outStock"><label class="form-check-label" for="outStock"><span data-key="filter-outstock">Out of stock</span> (0)</label></div>
+      </div>
+    </div>
+
+    <div class="col-lg-9">
+      <div class="row g-4" id="productGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-start" id="filterPanel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" data-key="filter-panel-title">Filter</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="filter-group">
+      <h6 data-key="filter-avail">Availability</h6>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="inStockM"><label class="form-check-label" for="inStockM"><span data-key="filter-instock">In stock</span> (17)</label></div>
+      <div class="form-check"><input class="form-check-input" type="checkbox" id="outStockM"><label class="form-check-label" for="outStockM"><span data-key="filter-outstock">Out of stock</span> (0)</label></div>
+    </div>
+  </div>
+</div>
+
+<section class="reveal py-5" style="background:var(--nd-cream);">
+  <div class="container text-center">
+    <h2 class="mb-3" style="font-size:1.6rem;" data-key="about-strip-title">About Sorelli Noir</h2>
+    <p class="text-secondary mx-auto" style="max-width:680px;font-size:.92rem;" data-key="about-strip-desc">A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <h2 class="mb-3" style="font-family:'Cormorant Garamond',serif;font-weight:700;">Sorelli <span style="color:var(--nd-tan-dark);">Noir</span></h2>
+        <p class="text-secondary" style="font-size:.9rem;" data-key="footer-desc">A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.</p>
+        <div class="d-flex mt-3">
+          <a href="https://wa.me/36707213987" target="_blank" class="social-circ"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-circ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 ps-lg-5">
+        <h6 data-key="footer-links-title">Important Links</h6>
+        <ul>
+          <li><a href="#" data-key="link-cat">Catalogue</a></li>
+          <li><a href="#" data-key="link-stores">Showrooms</a></li>
+          <li><a href="#" data-key="link-gifts">Corporate Gifts</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-4">
+        <h6 data-key="footer-menu-title">Main Menu</h6>
+         <ul>
+          <li><a href="index.html" data-key="nav-home">Home</a></li>
+          <li><a href="about-us.html" data-key="nav-about">About Us</a></li>
+          <li><a href="collection.html" data-key="nav-collection">Shop Collections</a></li>
+          <li><a href="gallery.html" data-key="nav-gallery">Gallery</a></li>
+          <li><a href="contact.html" data-key="nav-contact">Contact Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>&copy; 2026 Sorelli Noir Europe Global. All rights reserved.</span>
+      <span data-key="footer-replica">Wholesale Portal Framework</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Multilingual Translation Dictionary Map
+const translations = {
+  en: {
+    "announce-text": "EUROPE RETAILERS B2B PORTAL",
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-collection": "Collection",
+    "nav-gallery": "Gallery",
+    "nav-contact": "Contact",
+    "banner-eyebrow": "Travel Bags",
+    "banner-title": " Collection",
+    "banner-desc": "A line of leather travel bags built for movement and discovery — made for those who carry their own sense of direction wherever they go.",
+    "bc-home": "Home",
+    "bc-current": " Collection",
+    "toolbar-filter": "Filter",
+    "toolbar-count": "products",
+    "sort-featured": "Sort: Featured",
+    "sort-az": "Alphabetically, A-Z",
+    "sort-za": "Alphabetically, Z-A",
+    "filter-avail": "Availability",
+    "filter-instock": "In stock",
+    "filter-outstock": "Out of stock",
+    "filter-panel-title": "Filter",
+    "about-strip-title": "About Sorelli Noir",
+    "about-strip-desc": "A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.",
+    "footer-desc": "A tribute to quintessential B2B global design standards, blended with contemporary interpretations in design, material and premium craftsmanship across ASIA.",
+    "footer-links-title": "Important Links",
+    "footer-menu-title": "Main Menu",
+    "link-cat": "Catalogue",
+    "link-stores": "Showrooms",
+    "link-gifts": "Corporate Gifts",
+    "footer-replica": "Wholesale Portal Framework",
+    "lbl-view-more": "View More"
+  },
+  hu: {
+    "announce-text": "EURÓPAI KISKERESKEDŐK B2B PORTÁLJA",
+    "nav-home": "Főoldal",
+    "nav-about": "Rólunk",
+    "nav-collection": "Kollekció",
+    "nav-gallery": "Galéria",
+    "nav-contact": "Kapcsolat",
+    "banner-eyebrow": "Utazótáskák",
+    "banner-title": "Odyssey Kollekció",
+    "banner-desc": "Utazáshoz és felfedezéshez tervezett bőrtáskák kollekciója — azoknak, akik saját maguk határozzák meg az irányt, merre járnak.",
+    "bc-home": "Főoldal",
+    "bc-current": "Odyssey Kollekció",
+    "toolbar-filter": "Szűrés",
+    "toolbar-count": "termék",
+    "sort-featured": "Rendezés: Kiemelt",
+    "sort-az": "Betűrendben, A-Z",
+    "sort-za": "Betűrendben, Z-A",
+    "filter-avail": "Elérhetőség",
+    "filter-instock": "Raktáron",
+    "filter-outstock": "Nincs raktáron",
+    "filter-panel-title": "Szűrés",
+    "about-strip-title": "A Sorelli Noir-ról",
+    "about-strip-desc": "Tisztelgés a klasszikus B2B globális tervezési szabványok előtt, ötvözve a kortárs dizájnnal, anyagokkal és prémium kézművességgel Ázsiában.",
+    "footer-desc": "Tisztelgés a klasszikus B2B globális tervezési szabványok előtt, ötvözve a kortárs dizájnnal, anyagokkal és prémium kézművességgel Ázsiában.",
+    "footer-links-title": "Fontos Linkek",
+    "footer-menu-title": "Főmenü",
+    "link-cat": "Katalógus",
+    "link-stores": "Bemutatótermek",
+    "link-gifts": "Vállalati Ajándékok",
+    "footer-replica": "Nagykereskedelmi Portál Rendszer",
+    "lbl-view-more": "Részletek"
+  }
+};
+
+// Global Interactive Language Engine
+function changeLanguage(lang) {
+  document.documentElement.setAttribute('lang', lang);
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById(`lang-${lang}`);
+  if(activeBtn) activeBtn.classList.add('active');
+  
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  localStorage.setItem('snr-b2b-lang', lang);
+  renderProducts(currentProducts, lang);
+}
+
+// B2B Dynamic Product Master List with URL Mappings
+const products = [
+  { id: 1, nameEn: "Men Apparel & Jackets", nameHu: "Férfi ruházat és dzsekik", img: "Men Apparel & Jackets.jpeg", url: "jacket.html" },
+  { id: 2, nameEn: "Formal Office Shoes", nameHu: "Alkalmi irodai cipők", img: "Formal Office Shoes.jpeg", url: "formalshoes.html" },
+  { id: 3, nameEn: "Casual Shoes", nameHu: "Utcai cipők", img: "Casual Shoes.jpeg", url: "Casualshoes.html" },
+  { id: 4, nameEn: "Long Boots", nameHu: "Hosszú szárú csizmák", img: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=700&q=80", url: "long-boots.html" },
+  { id: 5, nameEn: "Belts & Wallets (Men)", nameHu: "Övek és pénztárcák (Férfi)", img: "Belts & Wallets.jpeg", url: "wallets.html" },
+  { id: 6, nameEn: "Long Coats", nameHu: "Hosszú kabátok", img: "Long Coats.jpeg", url: "longcoat.html" },
+  { id: 7, nameEn: "Winter Jackets", nameHu: "Téli dzsekik", img: "Winter Jackets.jpeg", url: "winterjackets.html" },
+  { id: 8, nameEn: "Cross Shoulder Bags", nameHu: "Keresztpántos válltáskák", img: "Cross Shoulder Bags.jpeg", url: "crossbag.html" },
+  { id: 9, nameEn: "Tourist Waist Bags (Men)", nameHu: "Turista övtáskák (Férfi)", img: "Tourist Waist Bags.jpeg", url: "touristwaistbag.html" },
+  { id: 10, nameEn: "Winter & Gym Gloves", nameHu: "Téli és edzőkesztyűk", img: "Winter & Gym Gloves.jpeg", url: "gymgloves.html" },
+  { id: 11, nameEn: "Women Apparel & Jackets", nameHu: "Női ruházat és dzsekik", img: "Women Apparel & Jackets.jpeg", url: "jacket.html" },
+  { id: 12, nameEn: "Office Wear Footwear", nameHu: "Irodai női cipők", img: "Office Wear Footwear.jpeg", url: "formalshoes.html" },
+  { id: 13, nameEn: "Casual Shoes & Boots", nameHu: "Női utcai cipők és csizmák", img: "Casual Shoes & Boots.jpeg", url: "Casualshoes.html" },
+  { id: 14, nameEn: "Belts & Wallets (Women)", nameHu: "Övek és pénztárcák (Női)", img: "Belts & Wallets (2).jpeg", url: "wallets.html" },
+  { id: 15, nameEn: "Long Coats & Winterwear", nameHu: "Női hosszú kabátok és téli ruházat", img: "Long Coats & Winterwear.jpeg", url: "longcoat.html" },
+  { id: 16, nameEn: "Ladies Hand Bags", nameHu: "Női kézitáskák", img: "Ladies Hand Bags.jpeg", url: "bag_2.html" },
+  { id: 17, nameEn: "Tourist Waist Bags (Women)", nameHu: "Turista övtáskák (Női)", img: "Tourist Waist Bags (2).jpeg", url: "touristwaistbag.html" }
+];
+
+let currentProducts = [...products];
+
+function renderProducts(list, lang){
+  const grid = document.getElementById('productGrid');
+  if(!grid) return;
+  
+  const viewMoreText = translations[lang] && translations[lang]['lbl-view-more'] ? translations[lang]['lbl-view-more'] : 'View More';
+
+  grid.innerHTML = list.map(p => `
+    <div class="col-6 col-md-4 product-card">
+      <div class="product-img-wrap" onclick="window.location.href='${p.url}'">
+        ${p.soldOut ? `<span class="sold-out-tag">${lang === 'hu' ? 'Elfogyott' : 'Sold Out'}</span>` : ''}
+        <img src="${p.img}" alt="B2B Portfolio Item">
+        
+        <!-- Hover Action Overlay Layer -->
+        <div class="view-more-overlay">
+          <a href="${p.url}" class="view-more-btn" onclick="event.stopPropagation();">${viewMoreText}</a>
+        </div>
+        
+        <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="fa-regular fa-heart"></i></button>
+      </div>
+
+      <!-- Color Swatches Panel -->
+      <div class="color-swatch-panel">
+        <div class="swatch-node swatch-black" title="Sketch Black"></div>
+        <div class="swatch-node swatch-tan" title="Sketch Tan"></div>
+        <div class="swatch-node swatch-cream" title="Sketch Cream"></div>
+      </div>
+
+      <div class="product-name" onclick="window.location.href='${p.url}'">${lang === 'hu' ? p.nameHu : p.nameEn}</div>
+    </div>
+  `).join('');
+  
+  document.querySelectorAll('.item-count').forEach(el => el.textContent = list.length);
+}
+
+// Runtime Initialization
+const currentRuntimeLang = localStorage.getItem('snr-b2b-lang') || 'en';
+changeLanguage(currentRuntimeLang);
+
+document.getElementById('sortSelect').addEventListener('change', (e)=>{
+  const activeLang = document.documentElement.getAttribute('lang') || 'en';
+  if(e.target.value === 'az'){
+    currentProducts.sort((a,b) => {
+      const nameA = activeLang === 'hu' ? a.nameHu : a.nameEn;
+      const nameB = activeLang === 'hu' ? b.nameHu : b.nameEn;
+      return nameA.localeCompare(nameB);
+    });
+  } else if(e.target.value === 'za'){
+    currentProducts.sort((a,b) => {
+      const nameA = activeLang === 'hu' ? a.nameHu : a.nameEn;
+      const nameB = activeLang === 'hu' ? b.nameHu : b.nameEn;
+      return nameB.localeCompare(nameA);
+    });
+  } else {
+    currentProducts = [...products];
+  }
+  renderProducts(currentProducts, activeLang);
+});
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
